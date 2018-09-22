@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
+import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -133,6 +134,7 @@ class Dashboard extends React.Component {
               <Typography variant="title" color="inherit" noWrap className={classes.title}>
                 CMU: Where Yinz At
               </Typography>
+              <Button color="inherit">New Scan</Button>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
                   <NotificationsIcon />
@@ -159,18 +161,23 @@ class Dashboard extends React.Component {
           </Drawer>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
+            
+            {/* This is where our content goes */}
+
             <Typography variant="display1" gutterBottom>
-              Orders
-            </Typography>
-            <Typography component="div" className={classes.chartContainer}>
-              <SimpleLineChart />
-            </Typography>
-            <Typography variant="display1" gutterBottom>
-              Products
+              Device Counts for 21 Sept 2018, 4:00:00
             </Typography>
             <div className={classes.tableContainer}>
               <SimpleTable />
             </div>
+
+            <Typography variant="display1" gutterBottom>
+              Products
+            </Typography>
+            
+            <Typography component="div" className={classes.chartContainer}>
+              <SimpleLineChart />
+            </Typography>
           </main>
         </div>
       </React.Fragment>

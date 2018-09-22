@@ -19,17 +19,17 @@ const styles = {
 };
 
 let id = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, subnet, l_lat, l_lon, g_lat, g_lon, total) {
   id += 1;
-  return { id, name, calories, fat, carbs, protein };
+  return { id, name, subnet, l_lat, l_lon, g_lat, g_lon, total};
 }
 
 const data = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Wean', "128.237.110.1", 40.442685, -79.945908, 40.442685, -79.945908, 250),
+  createData('Wean', "128.237.110.1", 40.442685, -79.945908, 40.442685, -79.945908, 250),
+  createData('Wean', "128.237.110.1", 40.442685, -79.945908, 40.442685, -79.945908, 250),
+  createData('Wean', "128.237.110.1", 40.442685, -79.945908, 40.442685, -79.945908, 250),
+  createData('Wean', "128.237.110.1", 40.442685, -79.945908, 40.442685, -79.945908, 250)
 ];
 
 function SimpleTable(props) {
@@ -40,11 +40,10 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell numeric>Calories</TableCell>
-            <TableCell numeric>Fat (g)</TableCell>
-            <TableCell numeric>Carbs (g)</TableCell>
-            <TableCell numeric>Protein (g)</TableCell>
+            <TableCell>Building</TableCell>
+            <TableCell>Subnet Start</TableCell>
+            <TableCell>Lat, Lon</TableCell>
+            <TableCell numeric>Devices</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,10 +53,9 @@ function SimpleTable(props) {
                 <TableCell component="th" scope="row">
                   {n.name}
                 </TableCell>
-                <TableCell numeric>{n.calories}</TableCell>
-                <TableCell numeric>{n.fat}</TableCell>
-                <TableCell numeric>{n.carbs}</TableCell>
-                <TableCell numeric>{n.protein}</TableCell>
+                <TableCell>{n.subnet}</TableCell>
+                <TableCell>{n.l_lat}, {n.l_lon}</TableCell>
+                <TableCell numeric>{n.total}</TableCell>
               </TableRow>
             );
           })}
